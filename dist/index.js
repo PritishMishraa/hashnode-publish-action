@@ -81,6 +81,7 @@ const gray_matter_1 = __importDefault(__nccwpck_require__(5382));
 const core_1 = __nccwpck_require__(2186);
 const publishPost_1 = __nccwpck_require__(1929);
 const getPublicationsID_1 = __nccwpck_require__(7073);
+const process_1 = __nccwpck_require__(7282);
 function slugify(text) {
     return text
         .toLowerCase()
@@ -132,6 +133,10 @@ async function run() {
             fs_1.default.writeFileSync(filePath, updatedFileContent, "utf-8");
         }
     });
+    if (blogPosts.length === 0) {
+        console.log("No blog posts to publish.");
+        (0, process_1.exit)(0);
+    }
     for (const blogPost of blogPosts) {
         await (0, publishPost_1.publishPostHandler)(blogPost);
     }
@@ -30202,6 +30207,14 @@ module.exports = require("path");
 
 "use strict";
 module.exports = require("perf_hooks");
+
+/***/ }),
+
+/***/ 7282:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("process");
 
 /***/ }),
 
