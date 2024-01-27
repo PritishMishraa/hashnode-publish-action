@@ -4,6 +4,7 @@ tags:
   - GitHub Actions
   - Coding
   - Automation
+status: PUBLISHED
 ---
 
 # Coding My First GitHub Action
