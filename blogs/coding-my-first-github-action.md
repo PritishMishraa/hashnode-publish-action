@@ -4,7 +4,6 @@ tags:
   - GitHub Actions
   - Coding
   - Automation
-coverImage: 
 ---
 
 # Coding My First GitHub Action
