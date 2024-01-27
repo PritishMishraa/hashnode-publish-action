@@ -1,0 +1,17 @@
+name: Publish to Hashnode
+description: Publishes a blog post to Hashnode
+author: Pritish Mishra
+inputs:
+  src:
+    description: 'The path to the blog post'
+    required: true
+    default: 'blogs'
+  HASHNODE_PAT:
+    description: 'The Hashnode Personal Access Token'
+    required: true
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
+branding:
+  icon: 'edit-3'
+  color: 'blue'

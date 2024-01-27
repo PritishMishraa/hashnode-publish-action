@@ -1,0 +1,29 @@
+name: Publish to Hashnode
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm install
+      - name: Publish to Hashnode
+        uses: ./ # Uses an action in the root directory
+        with:
+          src: blogs
+          HASHNODE_PAT: ${{ secrets.HASHNODE_PAT }}
+      - name: (AUTO COMMIT) Commit and Push changes
+        run: |
+          git config --global user.name 'Pritish Mishra'
+          git config --global user.email 'pritishmishra579@gmail.com'
+          git add .
+          git commit -m "Updated blog status to published"
+          git push
