@@ -8,6 +8,7 @@ import { PublishPostInput, Tag } from "./index.d";
 
 import { publishPostHandler } from "./publishPost";
 import { getPublicationsID } from "./getPublicationsID";
+import { exit } from "process";
 
 function slugify(text: string): string {
   return text
@@ -74,6 +75,11 @@ async function run() {
       fs.writeFileSync(filePath, updatedFileContent, "utf-8");
     }
   });
+
+  if (blogPosts.length === 0) {
+    console.log("No blog posts to publish.");
+    exit(0);
+  }
 
   for (const blogPost of blogPosts) {
     await publishPostHandler(blogPost);

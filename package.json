@@ -1,13 +1,13 @@
 {
   "name": "hashnode-publish-action",
   "version": "1.0.0",
-  "description": "",
+  "description": "GitHub Action to publishe blog post to Hashnode",
   "main": "index.js",
   "scripts": {
     "start": "npm run build && node dist/index.js",
     "build": "tsc && ncc build lib/index.js"
   },
-  "keywords": [],
+  "keywords": ["hashnode", "publish", "blog", "action", "github"],
   "author": "Pritish Mishra",
   "license": "ISC",
   "devDependencies": {
