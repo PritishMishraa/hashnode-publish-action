@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 
 import matter from "gray-matter";
-import { setFailed } from "@actions/core";
+import { getInput, setFailed } from "@actions/core";
 
 import { PublishPostInput, Tag } from "./index.d";
 
@@ -26,7 +26,8 @@ async function run() {
     return;
   }
 
-  const blogFolderPath = path.join(__dirname, "..", "blogs");
+  const blogFolderName = getInput("src") || "blogs";
+  const blogFolderPath = path.join(__dirname, "..", blogFolderName);
 
   if (!fs.existsSync(blogFolderPath)) {
     console.error("No blogs folder found.");
