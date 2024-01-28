@@ -43,7 +43,7 @@ The `with` portion of the workflow **must** be configured before the action will
 | Key  | Value Information | Default | Type | Required |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
 | `HASHNODE_PAT`  | The Hashnode Personal Access Token. Get it [Here](https://hashnode.com/settings/developer). | - |`secrets` | **Yes** |
-| `src` | The path to the blog post. | blogs | `string` | YES |
+| `src` | The path to the blog post. | blogs | `string` | NO |
 
 ### For markdown files
 Each markdown file should atleast containt `title` and `tags` in the front-matter (_mandatory for hashnode_). 

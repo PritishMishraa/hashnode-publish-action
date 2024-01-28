@@ -4,7 +4,6 @@ author: Pritish Mishra
 inputs:
   src:
     description: 'The path to the blog post'
-    required: true
     default: 'blogs'
   HASHNODE_PAT:
     description: 'The Hashnode Personal Access Token'
