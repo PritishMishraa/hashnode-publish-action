@@ -89,17 +89,17 @@ function slugify(text) {
         .replace(/^-+|-+$/g, "");
 }
 async function run() {
+    const blogFolderName = (0, core_1.getInput)("src") || "blogs";
+    const blogFolderPath = path_1.default.join(__dirname, "..", blogFolderName);
+    if (!fs_1.default.existsSync(blogFolderPath)) {
+        console.error(`No ${blogFolderName} folder found at ${blogFolderPath}.`);
+        (0, core_1.setFailed)(`No ${blogFolderName} folder found at ${blogFolderPath}.`);
+        return;
+    }
     const publicationsID = await (0, getPublicationsID_1.getPublicationsID)();
     if (!publicationsID) {
         console.error("No publications ID found.");
         (0, core_1.setFailed)("No publications ID found.");
-        return;
-    }
-    const blogFolderName = (0, core_1.getInput)("src") || "blogs";
-    const blogFolderPath = path_1.default.join(__dirname, "..", blogFolderName);
-    if (!fs_1.default.existsSync(blogFolderPath)) {
-        console.error("No blogs folder found.");
-        (0, core_1.setFailed)("No blogs folder found.");
         return;
     }
     const files = fs_1.default.readdirSync(blogFolderPath);

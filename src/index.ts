@@ -18,20 +18,20 @@ function slugify(text: string): string {
 }
 
 async function run() {
+  const blogFolderName = getInput("src") || "blogs";
+  const blogFolderPath = path.join(__dirname, "..", blogFolderName);
+
+  if (!fs.existsSync(blogFolderPath)) {
+    console.error(`No ${blogFolderName} folder found at ${blogFolderPath}.`);
+    setFailed(`No ${blogFolderName} folder found at ${blogFolderPath}.`);
+    return;
+  }
+  
   const publicationsID = await getPublicationsID();
 
   if (!publicationsID) {
     console.error("No publications ID found.");
     setFailed("No publications ID found.");
-    return;
-  }
-
-  const blogFolderName = getInput("src") || "blogs";
-  const blogFolderPath = path.join(__dirname, "..", blogFolderName);
-
-  if (!fs.existsSync(blogFolderPath)) {
-    console.error("No blogs folder found.");
-    setFailed("No blogs folder found.");
     return;
   }
 
