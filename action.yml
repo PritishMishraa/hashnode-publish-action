@@ -9,6 +9,7 @@ inputs:
   HASHNODE_PAT:
     description: 'The Hashnode Personal Access Token'
     required: true
+    default: ${{ secrets.HASHNODE_PAT }}
 runs:
   using: 'node20'
   main: 'dist/index.js'
