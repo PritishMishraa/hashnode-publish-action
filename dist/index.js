@@ -95,7 +95,8 @@ async function run() {
         (0, core_1.setFailed)("No publications ID found.");
         return;
     }
-    const blogFolderPath = path_1.default.join(__dirname, "..", "blogs");
+    const blogFolderName = (0, core_1.getInput)("src") || "blogs";
+    const blogFolderPath = path_1.default.join(__dirname, "..", blogFolderName);
     if (!fs_1.default.existsSync(blogFolderPath)) {
         console.error("No blogs folder found.");
         (0, core_1.setFailed)("No blogs folder found.");
