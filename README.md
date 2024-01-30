@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Publish to Hashnode
-        uses: PritishMishraa/hashnode-publish-action@v1.0.1
+        uses: PritishMishraa/hashnode-publish-action@v1.0.2
         with:
           src: blogs
           HASHNODE_PAT: ${{ secrets.HASHNODE_PAT }}
