@@ -37,6 +37,9 @@ This will trigger a deployment for every commit to blog folder in master. If you
 
 ## Configuration
 
+> [!IMPORTANT]  
+> Workflows should have read and write permissions in the repository. Check here, `Settings > Actions > General > Workflow permissions`
+
 ### For GitHub Action
 The `with` portion of the workflow **must** be configured before the action will work. Any `secrets` must be referenced using the bracket syntax and stored in the GitHub repositories `Settings/Security/Secrets and variables/Actions` menu. You can learn more about setting environment variables with GitHub actions [here](https://help.github.com/en/articles/workflow-syntax-for-github-actions#jobsjob_idstepsenv).
 
